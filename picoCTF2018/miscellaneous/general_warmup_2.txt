@@ -1,0 +1,29 @@
+Can you convert the number 27 (base 10) to binary (base 2)?
+
+To go from base 10 to base 2 you can do a few things.
+
+You can find the highest base 2 multiple(1,2,4,8,16,32...) that is less than
+your base 10 number and then subtract it from your original number and repeat.
+In this example you would have 16 as your first number so set that to 1,
+then you have 11 left which 8 goes into so that is 1 with 3 left. 4 can't go
+into it so that's a zero. So 2 can go into 3 and 1 can go into 1, which looks
+like this if you do it all together.
+
+base10    base2/10  fits?   base2     remainder
+27        16        yes     10000     27-16 = 11
+11        8         yes     11000     11-8 = 3
+3         4         no      11000     3-0 = 3
+3         2         yes     11010     3-2 = 1
+1         1         yes     11011     1-1 = 0
+
+you could also do it more math focused and proper and divide by two and the
+remainder is your binary representation and the floor of the division is your
+next divisible integer.
+
+27%2 = 1    27/2 = 13
+13%2 = 1    13/2 = 6
+ 6%2 = 0    6/2  = 3
+ 3%2 = 1    3/2  = 1
+ 1%2 = 1    1/2  = 0
+
+Answer: picoCTF{11011}

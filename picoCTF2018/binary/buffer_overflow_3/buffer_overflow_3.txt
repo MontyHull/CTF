@@ -1,0 +1,6 @@
+It looks like Dr. Xernon added a stack canary to this program [1]  to protect
+against buffer overflows. Do you think you can bypass the protection and get
+the flag? You can find it in
+/problems/buffer-overflow-3_4_931796dc4e43db0865e15fa60eb55b9e
+
+Answer: picoCTF{eT_tU_bRuT3_F0Rc3_9bb35cfd}

@@ -1,0 +1,10 @@
+What does asm1(0x76) return? Submit the flag as a hexadecimal value
+(starting with '0x'). NOTE: Your submission for this question will NOT be in
+the normal flag format. Source [1]  located in the directory at
+/problems/assembly-1_0_cfb59ef3b257335ee403035a6e42c2ed
+
+To answer this you have to look at the assembly code and follow the logic.
+You will notice that you jump in and out of a few functions, but you are mostly
+just adding/subtracting 3 from your original input. you end up with 0x73
+
+Answer: 0x73

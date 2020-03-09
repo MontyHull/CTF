@@ -1,0 +1,11 @@
+This program [1]  executes any input you give it. Can you get a shell? You can
+find the program in /problems/shellcode_1_cec2eb801137d645a9f15b9b6af5347a
+on the shell server. Source [2] .
+
+To figure this one out you just need to execute some shellcode and continue
+running so if you put your code in a file and then redirect your file into vuln
+using cat and - to continue running you will get control of a shell.
+
+Command: cat ~/code.txt - | ./vuln
+
+Answer: picoCTF{shellc0de_w00h00_26e91a77}

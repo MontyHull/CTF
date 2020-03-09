@@ -1,0 +1,7 @@
+We captured some traffic [1]  logging into the admin panel, can you find the
+password?
+
+Open wireshark and trace the TCP streams. You will find it in a request to
+the server in the header. 
+
+Answer: picoCTF{n0ts3cur3_13597b43}

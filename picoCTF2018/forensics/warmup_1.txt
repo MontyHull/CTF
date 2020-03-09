@@ -1,0 +1,9 @@
+Can you unzip this file for me and retreive the flag?
+
+Once you download this file you just need to unzip it and open the picture that
+it holds. You can use the command line with the commands below, or you can
+just point and click in most environments.
+
+command: unzip flag.zip; eog flag.png
+
+answer: picoCTF{welc0m3_t0_r3VeRs1nG}

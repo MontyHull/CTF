@@ -1,0 +1,9 @@
+Let's start off simple, can you overflow the right buffer in this program [1]
+to get the flag? You can also find it in
+/problems/buffer-overflow-0_1_316c391426b9319fbdfb523ee15b37db
+on the shell server. Source [2] .
+
+This program sets up a signal handler for segfaults to print the flag, so you
+just need to overflow the buffer and it will print the flag for you. 
+
+Answer: picoCTF{ov3rfl0ws_ar3nt_that_bad_3598a894}

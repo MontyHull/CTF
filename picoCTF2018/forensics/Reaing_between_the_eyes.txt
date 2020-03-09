@@ -1,0 +1,5 @@
+Stego-Saurus hid a message for you in this image [1] , can you retreive it?
+
+Just google online image decoder and put it in. 
+
+Answer: picoCTF{r34d1ng_b37w33n_7h3_by73s}

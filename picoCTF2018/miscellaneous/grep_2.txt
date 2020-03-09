@@ -1,0 +1,12 @@
+This one is a little bit harder. Can you find the flag in
+/problems/grep-2_4_06c2058761f24267033e7ca6ff9d9144/files
+on the shell server? Remember, grep is your friend.
+
+This challenge asks you to grep through many files and folders to find the flag.
+The way to do this is to attach the -r option to your grep command. This will
+tell grep to recursively search through each file and directory starting with
+your current directory and going until there are no more children nodes.
+
+command: grep -r "picoCTF"
+
+answer: files2/file8:picoCTF{grep_r_and_you_will_find_036bbb25}

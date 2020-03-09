@@ -1,0 +1,7 @@
+Can you help us find the flag in this Meta-Material [1] ? You can also find the
+file in /problems/truly-an-artist_1_59a330544b5c06946dfb0617b1c13330.
+
+You are suppose to check the metadata for the answer, but if you know something
+is hiding in the meta you can usually just strings it out. 
+
+Answer: picoCTF{look_in_image_9f5be995}

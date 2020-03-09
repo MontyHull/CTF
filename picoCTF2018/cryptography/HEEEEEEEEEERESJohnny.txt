@@ -1,0 +1,10 @@
+Okay, so we found some important looking files on a linux computer. Maybe they
+can be used to get a password to the process. Connect with
+nc 2018shell.picoctf.com 35225. Files can be found here: passwd [1]  shadow [2]
+
+For this we can use a program called john-the-ripper and the rockyou password
+database to crack the password.
+
+Command: john --wordlist=rockyou.txt shadow
+
+Answer: picoCTF{J0hn_1$_R1pp3d_99c35524}

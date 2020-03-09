@@ -1,0 +1,23 @@
+Alright, this time you'll need to control some arguments. Can you get the flag
+from this program [1] ? You can find it in
+/problems/buffer-overflow-2_3_02aff35ae94896082cad513865e6c2eb on the shell
+server. Source [2] .
+
+If you check the source code you see that you need to call the function win()
+with two integer values deadbeef and deadc0de. However, win is never called in
+the program, so you are going to need to overwrite the return register in the
+vuln() function to return to the win() function. You are also going to need to
+give it the deadbeef and deadc0de variables. To start it is helpful to just
+print a ton of A's to figure out where the return address is. We can see the
+registry is overwritten with strace if we want, and then tailor our input until
+we hit it. Also, you can look at the source and know that the buffer is 100
+bytes long, and then the intro for the function before the return address is 12
+more bytes, so you need 112 bytes before you hit the return address. Now you can
+rewrite the return address and get into the function, but if you don't have any
+variables it will exit. So you need to give it four more bytes of filler for the
+ebp, then deadbeef and deadc0de. Congratulations, you now have the flag
+
+command:
+python -c "print('A' * 112 + '\xcb\x85\x04\x08' + 'BBBB' + '\xef\xbe\xad\xde\xde\xc0\xad\xde')" | ./vuln
+
+Answer: picoCTF{addr3ss3s_ar3_3asya4104c14}

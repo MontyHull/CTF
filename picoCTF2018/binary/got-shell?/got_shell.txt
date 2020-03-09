@@ -1,0 +1,7 @@
+Can you authenticate to this service [1]  and get the flag? Connect to it with
+nc 2018shell.picoctf.com 27952. Source [2]
+
+win = 0804854b
+exit = 0804a014
+
+Answer: picoCTF{m4sT3r_0f_tH3_g0t_t4b1e_d496409a}

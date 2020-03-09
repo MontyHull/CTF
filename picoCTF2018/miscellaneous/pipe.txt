@@ -1,0 +1,14 @@
+During your adventure, you will likely encounter a situation where you need to
+process data that you receive over the network rather than through a file.
+Can you find a way to save the output from this program and search for the flag?
+Connect with 2018shell.picoctf.com 34532.
+
+For this problem you are going to be using nc, grep, and pipes " | ". If you
+attempt to just run "nc 2018shell.picoctf.com 34532" then you are going to be
+flooded with messages that you aren't going to be able to read fast enough to
+find the flag. However, if you attach the grep command to it with picoCTF then
+you will only print the answer.  
+
+command nc 2018shell.picoctf.com 34532 | grep "picoCTF"
+
+answer: picoCTF{almost_like_mario_b797f2b3}

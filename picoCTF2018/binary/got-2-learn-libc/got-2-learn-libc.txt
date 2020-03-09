@@ -1,0 +1,13 @@
+This program [1]  gives you the address of some system calls. Can you get a
+shell? You can find the program in
+/problems/got-2-learn-libc_1_ceda86bc09ce7d6a0588da4f914eb833
+on the shell server. Source [2] .
+
+To get this one you need to find the address of the system call in libc, then
+call it with the argument saved in useful string. To do this you need to find
+the offset between puts (or any of the other libc calls) and system. Then you
+need to calculate the address based off of the offset and then buffer overflow
+to that address then use the address of the given string which is for a shell.
+I used pwntools and created a script to do most of this for me. 
+
+Answer: picoCTF{syc4al1s_4rE_uS3fUl_a78c4d87}

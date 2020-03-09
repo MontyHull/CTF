@@ -1,0 +1,13 @@
+To be successful on your mission, you must be able read data represented in
+different ways, such as hexadecimal or binary. Can you get the flag from this
+program to prove you are ready? Connect with nc 2018shell.picoctf.com 14390.
+
+Once you nc into the server it will give you differnt codes encoded in binary,
+hex, and octal that you have to decode. You could set up python and quickly
+type everything in, or just have a webpage open that has all the transfer
+calculators in one place. Copy and paste the answers and you will be given the
+flag.
+
+command nc 2018shell.picoctf.com 14390
+
+answer: picoCTF{delusions_about_finding_values_602fd280}

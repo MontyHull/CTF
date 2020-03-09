@@ -1,0 +1,5 @@
+Inpect this code! http://2018shell.picoctf.com:35349 (link [1] )
+
+You just need to inspect the code in the html page and the css.
+
+Answer: picoCTF{ur_4_real_1nspect0r_g4dget_098df0d0}

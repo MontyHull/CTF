@@ -1,0 +1,21 @@
+
+Scalpel version 1.60 audit file
+Started at Thu Feb 20 08:27:23 2020
+Command line:
+scalpel husky.png 
+
+Output directory: /home/monty/CTF/picoCTF2018/files/forensics/scalpel-output
+Configuration file: /etc/scalpel/scalpel.conf
+
+Opening target "H="
+
+The following files were carved:
+File		  Start			Chop		Length		Extracted From
+ERROR: The configuration file didn't specify any file types to carve.
+(If you're using the default configuration file, you'll have to
+uncomment some of the file types.)
+
+See /etc/scalpel/scalpel.conf.
+
+
+Completed at Thu Feb 20 08:27:23 2020

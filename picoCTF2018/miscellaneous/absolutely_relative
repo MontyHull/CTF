@@ -1,0 +1,16 @@
+In a filesystem, everything is relative ¯\_(ツ)_/¯. Can you find a way to get a
+flag from this program [1] ? You can find it in
+/problems/absolutely-relative_0_d4f0f1c47f503378c4bb81981a80a9b6 on the shell
+server. Source [2] .
+
+When you get to the directory for the flag there are three files present.
+One is the flag.txt which you don't have permission to read. The second is
+a program called absolutely_relative and the third is it's source. If you run
+the code it will tell you that you don't have permission to read the file.
+If you then look in the source you will see that it is checking a file
+./permission.txt for the word yes to see if you have permission. However, you
+don't have permission to write in the current folder, so you have to create the
+file in your home dir, then run the program from there. Because it is looking
+for the file using a relative path it will look in your home dir and run.
+
+answer: picoCTF{3v3r1ng_1$_r3l3t1v3_befc0ce1}

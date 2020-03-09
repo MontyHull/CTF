@@ -1,0 +1,8 @@
+Can you authenticate to this service [1]  and get the flag? Connect with
+nc 2018shell.picoctf.com 1271. Source [2] .
+
+We have another basic overflow attack. All you need to do is input 256+64 char
+to get the password to print out, because the length of the password is
+attached to the name now.
+
+Answer: picoCTF{aLw4y5_Ch3cK_tHe_bUfF3r_s1z3_958ebb8e}

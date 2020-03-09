@@ -1,0 +1,13 @@
+This program prints any input you give it. Can you leak [1]  the flag?
+Connect with nc 2018shell.picoctf.com 46960. Source [2] .
+
+When you look at the source you can see that they are using printf to
+print out exactly what you give them without using your input as a string,
+which allows you to input modifiers. The easiest way to do this is to just
+use %#08x. to find addresses to attempt to print with %s. Once you find an
+address just use %s to see if it's a string, and eventually you will be able to
+find the flag. 
+
+Command: %#08x.%#08x.%#08x.%#08x.%#08x.%#08x.%#08x.%s
+
+Answer: picoCTF{foRm4t_stRinGs_aRe_DanGer0us_a7bc4a2d}

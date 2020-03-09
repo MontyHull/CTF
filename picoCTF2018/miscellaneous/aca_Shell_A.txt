@@ -1,0 +1,29 @@
+It's never a bad idea to brush up on those Linux skills or even learn some new
+ones before you set off on this adventure! Connect with
+
+This is your basic "learn some Linux" ctf question. In it you will need to
+know how to traverse file directories using ls and cd, how to read, run,
+delete, and copy files using cat, rm, and cp, how to print your username using
+whoami, and how to print to the terminal using echo.. Below in order is the
+commands you must type to complete the challenge. Some of the commands such
+as cd or cat can be combined, but CTF shells can sometimes be very
+particular about where a command is executed from. In this example you are
+not allowed to copy in less you are in the home directory so I tried to keep
+each command separate for readability and function.
+
+Commands:
+nc 2018shell.picoctf.com 6903
+cd secrets
+ls
+rm *
+echo 'Drop it in!'
+cd ..
+cd executables
+./dontLookHere
+whoami
+cd ..
+cp /tmp/TopSecret ./passwords/
+cd passwords
+cat TopSecret
+
+answer: picoCTF{CrUsHeD_It_dddcec58}

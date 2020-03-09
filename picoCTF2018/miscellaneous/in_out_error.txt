@@ -1,0 +1,11 @@
+Can you utlize stdin, stdout, and stderr to get the flag from this program [1] ?
+You can also find it in on the shell server at
+/problems/in-out-error_0_0f875f7714b995dad5946a15be6267a7
+
+when you get to the directory given you have a flag.txt and an exe. Once you run
+the program it asks you to type a sentence for the flag from stdin. If you do it
+will flood you with a ton of garbled text. If you instead pipe the sentence in
+and then redirect stdout to /dev/null you will get the actual answer. Also, if
+you redirect stderr to /dev/null you will get rick rolled. 
+
+answer: picoCTF{p1p1ng_1S_4_7h1ng_85f6fd2c}

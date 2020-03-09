@@ -1,0 +1,16 @@
+Okay now you're cooking! This time can you overflow the buffer and return to
+the flag function in this program [1] ? You can find it in
+/problems/buffer-overflow-1_2_86cbe4de3cdc8986063c379e61f669ba
+on the shell server. Source [2] .
+
+For this problem you need to get to address 0x080485cb in order to get into the
+function win() and have the flag print. To do this you have to overwrite the
+return address in the vuln() function. When you look at the vuln() function you
+see that the buffer has a size of 32 bytes. You need to add 4 more for your ebp,
+4 more for your esp, and four more for something that I don't know. Therefore
+you need to write 44 bytes to the buffer, then 4 more for the address you are
+trying to get to. the command is listed below.
+
+Command: python -c "print('\x41'*44 + '\xcb\x85\x04\x08')" | ./vuln
+
+Answer: picoCTF{addr3ss3s_ar3_3asy56a7b196}

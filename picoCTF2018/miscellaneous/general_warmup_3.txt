@@ -1,0 +1,11 @@
+What is 0x3D (base 16) in decimal (base 10).
+
+to convert from base16 to base10 you take each place and multiply it by it's
+hex value and 16^place then sum up your answers.
+
+0x3D =
+13*16^0 = 13
+ 3*16^1 = 48
+        = 61
+
+answer: picoCTF{61}
