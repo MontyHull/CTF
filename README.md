@@ -5,6 +5,9 @@ This repository will be used to hold all of my solutions and attempts and differ
 Currently this repo holds some solutions for:
 
 picoCTF 2018
+
 picoCTF 2019
+
 UTCTF 2020
+
 ROP Emporium
