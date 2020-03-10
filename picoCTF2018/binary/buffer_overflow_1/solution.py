@@ -1,23 +1,23 @@
 from pwn import *
 import json
+
 LOCAL = True
 CYCLIC_FOUND = True
 
+local_bin = './vuln'
+elf = ELF(local_bin)
+
 if(LOCAL):
-    bin = './vuln'
-    elf = ELF(bin)
-    p = process(bin)
+    p = process(local_bin)
 
 else:
     hostname ="2018shell.picoctf.com"
     dir = '/problems/buffer-overflow-1_2_86cbe4de3cdc8986063c379e61f669ba'
-    bin ='./vuln'
-    with open("~/creds.json") as f:
+    with open("../../creds.json") as f:
         creds = json.load(f)
         print(creds["user"],creds["pass"])
     s = ssh(host=hostname,user=creds["user"],password=creds["pass"])
     s.set_working_directory(dir)
-    elf = ELF(bin)
     p = s.process('sh')
     p.sendline('./vuln')
 
