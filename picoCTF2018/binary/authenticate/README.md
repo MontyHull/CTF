@@ -1,4 +1,4 @@
-# Authenticate
+# authenticate
 
 ## TODO
 
