@@ -1,4 +1,4 @@
-# authenticate
+# practice-run-1
 
 ## TODO
 
@@ -7,3 +7,9 @@
 - [ ] How are we going to exploit it?
 - [ ] The exploit
 - [ ] Is there any similar challenges I can link to?
+
+### Exploitable piece of code
+
+### How are we going to exploit it?
+
+### The exploit
