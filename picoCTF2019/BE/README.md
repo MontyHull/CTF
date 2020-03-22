@@ -7,7 +7,7 @@
 - [x] OverFlow 0
 - [x] OverFlow 1
 - [x] NewOverFlow-1
-- [ ] slippery-shellcode
+- [x] slippery-shellcode
 - [x] NewOverFlow-2
 - [x] OverFlow 2
 - [ ] CanaRy

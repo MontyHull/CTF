@@ -1,5 +1,7 @@
 # handy-shellcode
 
+This program executes any shellcode that you give it. Can you spawn a shell and use that to read the flag.txt? You can find the program in /problems/handy-shellcode_6_f0b84e12a8162d64291fd16755d233eb on the shell server.
+
 ## TODO
 
 - [x] Create python script to complete challenge
