@@ -1,0 +1,3 @@
+
+
+picoCTF{g3t_r3adY_2_r3v3r53}

