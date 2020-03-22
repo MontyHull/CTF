@@ -1,9 +1,19 @@
-# authenticate
+# Binary Exploitation
 
-## TODO
+## Challenges
 
-- [ ] Create python script to complete challenge
-- [ ] What is the exploitable piece of code?  
-- [ ] How are we going to exploit it?
-- [ ] The exploit
-- [ ] Is there any similar challenges I can link to?
+- [x] handy-shellcode
+- [x] practice-run-1
+- [x] OverFlow 0
+- [x] OverFlow 1
+- [x] NewOverFlow-1
+- [ ] slippery-shellcode
+- [x] NewOverFlow-2
+- [x] OverFlow 2
+- [ ] CanaRy
+- [ ] leap-frog
+- [ ] messy-malloc
+- [ ] stringzz
+- [ ] rop32
+- [ ] rop64
+- [ ] Ghost_Diary
