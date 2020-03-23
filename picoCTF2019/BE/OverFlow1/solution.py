@@ -1,8 +1,8 @@
 from pwn import *
 import json
 
-LOCAL = True
-CYCLIC_FOUND = False
+LOCAL = False
+CYCLIC_FOUND = True
 elf = ELF('./vuln')
 
 local_bin = "./vuln"
@@ -12,7 +12,7 @@ if(LOCAL):
 else:
     hostname = "2019shell1.picoctf.com"
     dir = '/problems/overflow-1_3_f08d494c74b95dae41bff71c2a6cf389'
-    with open("../../creds.json") as f:
+    with open("/.creds.json") as f:
         creds = json.load(f)
         print(creds["user"],creds["pass"])
     s = ssh(host=hostname,user=creds["user"],password=creds["pass"])
