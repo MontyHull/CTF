@@ -4,7 +4,7 @@ import json
 REMOTE=True
 hostname ="2018shell.picoctf.com"
 if REMOTE:
-    with open("../../creds.json") as f:
+    with open("/.2018creds.json") as f:
         creds = json.load(f)
         print(creds["user"],creds["pass"])
     s = ssh(host=hostname,user=creds["user"],password=creds["pass"])

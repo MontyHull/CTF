@@ -19,7 +19,7 @@ if(LOCAL):
 else:
     hostname ="2018shell.picoctf.com"
     dir = '/problems/buffer-overflow-1_2_86cbe4de3cdc8986063c379e61f669ba'
-    with open("../../creds.json") as f:
+    with open("/.2018creds.json") as f:
         creds = json.load(f)
         print(creds["user"],creds["pass"])
     s = ssh(host=hostname,user=creds["user"],password=creds["pass"])
