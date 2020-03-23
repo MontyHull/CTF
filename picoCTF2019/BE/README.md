@@ -11,7 +11,7 @@
 - [x] OverFlow 1
   - [x] writeup
 - [x] NewOverFlow-1
-  - [ ] writeup
+  - [x] writeup
 - [x] slippery-shellcode
   - [x] writeup
 - [x] NewOverFlow-2
@@ -25,6 +25,10 @@
 - [ ] messy-malloc
   - [ ] writeup
 - [ ] stringzz
+  - [ ] writeup
+- [ ] pointy
+  - [ ] writeup
+- [ ] seed-sPRiNG
   - [ ] writeup
 - [ ] rop32
   - [ ] writeup
