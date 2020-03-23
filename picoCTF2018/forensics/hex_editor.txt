@@ -1,6 +1,0 @@
-This cat [1]  has a secret to teach you. You can also find the file in
-/problems/hex-editor_0_8c20f979e6b2740dee597871ff1a74ee on the shell server.
-
-If you use xxd command in linux the flag is at the bottom of the dump. 
-
-Answer: picoCTF{and_thats_how_u_edit_hex_kittos_3E03e57d}

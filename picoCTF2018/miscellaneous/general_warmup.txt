@@ -1,5 +1,0 @@
-If I told you your grade was 0x41 in hexadecimal, what would it be in ASCII?
-
-Check an ASCII table. In linux you can type man ascii and it will open up
-
-Answer: picoCTF{A}

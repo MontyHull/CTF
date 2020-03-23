@@ -1,7 +1,0 @@
- Hmm for some reason I can't open this PNG? Any ideas?
-
-The file that you download is a .png file, however if you do hexdump, or run
-strings on it, you can see at the file header that it is actually a jpeg file.
-If you change the extension to .jpeg then you are able to open the image.
-
-answer: picoCTF{extensions_are_a_lie}
