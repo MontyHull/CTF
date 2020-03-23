@@ -13,7 +13,7 @@ if(LOCAL):
 else:
     hostname = "2019shell1.picoctf.com"
     dir = '/problems/slippery-shellcode_0_7440dd178b8f0686410008ac1268d808'
-    with open("../../creds.json") as f:
+    with open("/.2019creds.json") as f:
         creds = json.load(f)
         print(creds["user"],creds["pass"])
     s = ssh(host=hostname,user=creds["user"],password=creds["pass"])

