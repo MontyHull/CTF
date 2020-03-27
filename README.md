@@ -8,6 +8,4 @@ picoCTF 2018
 
 picoCTF 2019
 
-UTCTF 2020
-
 ROP Emporium
