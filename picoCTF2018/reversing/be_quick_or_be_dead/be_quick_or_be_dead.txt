@@ -1,4 +1,0 @@
-You find this [1]  when searching for some music, which leads you to
-be-quick-or-be-dead-1 [2] . Can you run it fast enough? You can also find the
-executable in
-/problems/be-quick-or-be-dead-1_4_98374389c5652d0b16055427532f098f
