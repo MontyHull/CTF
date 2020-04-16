@@ -1,5 +1,7 @@
 # buffer overflow 1
 
+Okay now you're cooking! This time can you overflow the buffer and return to the flag function in this program? You can find it in /problems/buffer-overflow-1_2_86cbe4de3cdc8986063c379e61f669ba on the shell server.
+
 ## TODO
 
 - [x] Create python script to complete challenge
