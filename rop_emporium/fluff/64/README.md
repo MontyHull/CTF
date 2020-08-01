@@ -112,7 +112,7 @@ It all seems to work in gdb. When I get to my call print_file() portion everythi
 
 And as I step through the print function I even get the flag printed out:
 
-'''
+```
 pwndbg> 
 ROPE{a_placeholder_32byte_flag!}
 
@@ -144,11 +144,11 @@ LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
 00:0000│ rsp  0x7fffffffe1c8 —▸ 0x400610 (main+9) ◂— mov    eax, 0
 01:0008│      0x7fffffffe1d0 ◂— 0x4242424242424242 ('BBBBBBBB')
 
-'''
+```
 
 but when I try to run on the command line all I get is a segfault:
 
-'''
+```
 $/rop_emporium/fluff/64$ cat payload.txt | ./fluff 
 fluff by ROP Emporium
 x86_64
@@ -156,7 +156,7 @@ x86_64
 You know changing these strings means I have to rewrite my solutions...
 > Thank you!
 Segmentation fault
-'''
+```
 
 
 ## Other attempts
