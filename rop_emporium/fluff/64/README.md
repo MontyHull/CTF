@@ -48,117 +48,34 @@ After looking at the questionable gadgets I realized I didn't know what any of t
 
 xlatb is a lookup table, and will put whatever is in [rbx+al] into al.
 
-bextr is a bit extractor, so whatever is in the second source operand (rdx for us) is used as a way to tell how many bits to extract from the first source operand and write to the destination operand. 
+bextr is a bit extractor, so whatever is in the second source operand (rdx for us) is used as a way to tell how many bits to extract from the first source operand (rcx in our case) and write to the destination operand (rbx). 
 
 stosb will store whatever is in the source operand (al) and write it to the memory in our destination operand ([rdi]) and then increment the destination by one. 
 
 So knowing this what we can: 
-- write "flag.txt" into our buffer so that we can look for it in memory later 
+- find multiple strings saved in our file that we can use to spell "flag.txt" 
 - pop the address where we are going to write flag into rdi
 - zero out al so that xlatb is only offset by rbx 
-- use bextr to get rbx pointing to where flag is written at the start of our buffer
+- use bextr to get rbx pointing to where each of our characters in memory are
 - use xlat to write "f" into al
 - use stosb to write al into memory
 - repeat until flag.txt is in memory
-- run out of room on the stack and need to reset rsp to our initial buffer
 - pop the address of flag.txt into rdi
 - call print_file()
 
 # What it looks like
 
-It all seems to work in gdb. When I get to my call print_file() portion everything looks good:
+I found all of my strings here:
 
 ```
- RAX  0x0
- RBX  0x7fffffffe198 ◂— 0x4141414100000000
- RCX  0x7fffffffe198 ◂— 0x4141414100000000
- RDX  0x3000
- RDI  0x601028 (data_start) ◂— 'flag.txt'
- RSI  0x7ffff7dae7e3 (_IO_2_1_stdout_+131) ◂— 0xdaf8c0000000000a /* '\n' */
- R8   0x7ffff7bef740 ◂— 0x7ffff7bef740
- R9   0x7ffff7bef740 ◂— 0x7ffff7bef740
- R10  0xfffffffffffff526
- R11  0x246
- R12  0x400520 (_start) ◂— xor    ebp, ebp
- R13  0x7ffff7dcc940 (pwnme+150) ◂— nop    
- R14  0x7478742e67616c66 ('flag.txt')
- R15  0x4141414100000000
- RBP  0x4242424242424242 ('BBBBBBBB')
-*RSP  0x7fffffffe1b8 —▸ 0x4006a3 (__libc_csu_init+99) ◂— pop    rdi
-*RIP  0x400620 (usefulFunction+9) ◂— call   0x400510
-[ DISASM ]─────────────────────────────────────────────────────────────────────────────────────
-   0x4006a4 <__libc_csu_init+100>      ret    
-    ↓
-   0x4006a3 <__libc_csu_init+99>       pop    rdi
-   0x4006a4 <__libc_csu_init+100>      ret    
-    ↓
-   0x4006a3 <__libc_csu_init+99>       pop    rdi
-   0x4006a4 <__libc_csu_init+100>      ret    
-    ↓
- ► 0x400620 <usefulFunction+9>         call   print_file@plt <print_file@plt>
-        rdi: 0x601028 (data_start) ◂— 'flag.txt'
-        rsi: 0x7ffff7dae7e3 (_IO_2_1_stdout_+131) ◂— 0xdaf8c0000000000a /* '\n' */
-        rdx: 0x3000
-        rcx: 0x7fffffffe198 ◂— 0x4141414100000000
- 
-   0x400625 <usefulFunction+14>        nop    
-   0x400626 <usefulFunction+15>        pop    rbp
-   0x400627 <usefulFunction+16>        ret    
- 
-   0x400628 <questionableGadgets>      xlatb  
-   0x400629 <questionableGadgets+1>    ret    
-
+f - 0x004003c1+3 - libfluff.so
+l - 0x004003c1+0 - libfluff.so
+a - 0x00400415+3 - _edata
+g - 0x004003cd+1 - _gmon_start_
+. - 0x004003c1+8 - libfluff.so
+t - 0x00400415+4 - _edata
+x - 0x004006c4+4 - nonexistent
+t - 0x00400415+4 - _edata
 ```
 
-And as I step through the print function I even get the flag printed out:
-
-```
-pwndbg> 
-ROPE{a_placeholder_32byte_flag!}
-
-Program received signal SIGSEGV, Segmentation fault.
-0x0000000000601028 in data_start ()
-LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
-[ REGISTERS ]────────────────────────────────────────────────────────────────────────────────────
-*RAX  0x0
- RBX  0x7fffffffe198 —▸ 0x7fffffffe100 ◂— 0xaf7f36e4f0ee5a00
-*RCX  0x602010 ◂— 0x0
-*RDX  0x0
-*RDI  0x21
-*RSI  0x1
-*R8   0x21f
-*R9   0x602260 ◂— 0x0
-*R10  0x0
-*R11  0x206
- R12  0x400520 (_start) ◂— xor    ebp, ebp
- R13  0x7ffff7dcc940 (pwnme+150) ◂— nop    
- R14  0x7478742e67616c66 ('flag.txt')
- R15  0x4141414100000000
-*RBP  0x4006a3 (__libc_csu_init+99) ◂— pop    rdi
-*RSP  0x7fffffffe1c8 —▸ 0x400610 (main+9) ◂— mov    eax, 0
-*RIP  0x601028 (data_start) ◂— 'flag.txt'
-[ DISASM ]─────────────────────────────────────────────────────────────────────────────────────
- ► 0x601028 <data_start>    insb   byte ptr [rdi], dx
-
-[ STACK ]──────────────────────────────────────────────────────────────────────────────────────
-00:0000│ rsp  0x7fffffffe1c8 —▸ 0x400610 (main+9) ◂— mov    eax, 0
-01:0008│      0x7fffffffe1d0 ◂— 0x4242424242424242 ('BBBBBBBB')
-
-```
-
-but when I try to run on the command line all I get is a segfault:
-
-```
-$/rop_emporium/fluff/64$ cat payload.txt | ./fluff 
-fluff by ROP Emporium
-x86_64
-
-You know changing these strings means I have to rewrite my solutions...
-> Thank you!
-Segmentation fault
-```
-
-
-## Other attempts
-
-After looking at my code, I realized that since I know where flag.txt is on the stack, I should just be able to call print_file() on it using that address, so I did and got the same results. It prints out fine in gdb, but just a segfault on the command line. 
+And after writing a quick function to add them all to an array I was able to get my string into memory and win using the solution.py file
